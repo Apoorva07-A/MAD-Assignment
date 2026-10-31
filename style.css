@@ -1,0 +1,912 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================
+   ROOT VARIABLES
+   ========================= */
+
+:root {
+    --orange: #f97316;
+    --orange2: #ea580c;
+    --bg: #f8fafc;
+    --surface: #fff;
+    --text: #172033;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --green: #16a34a;
+    --red: #dc2626;
+}
+
+body.dark {
+    --bg: #0f172a;
+    --surface: #172033;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --border: #334155;
+}
+
+
+/* =========================
+   GLOBAL STYLES
+   ========================= */
+
+body {
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================
+   SIDEBAR
+   ========================= */
+
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 245px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 10px 30px;
+}
+
+.logo {
+    width: 44px;
+    height: 44px;
+    background: #fff7ed;
+    border-radius: 13px;
+    display: grid;
+    place-items: center;
+    font-size: 23px;
+}
+
+.brand b {
+    display: block;
+    font-size: 17px;
+}
+
+.brand small {
+    color: var(--muted);
+}
+
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+nav {
+    display: grid;
+    gap: 8px;
+}
+
+.nav {
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    border-radius: 11px;
+    padding: 12px 14px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    text-align: left;
+}
+
+.nav:hover,
+.nav.active {
+    background: #fff7ed;
+    color: var(--orange2);
+}
+
+body.dark .nav:hover,
+body.dark .nav.active {
+    background: #431407;
+}
+
+.nav em {
+    font-style: normal;
+    background: var(--orange);
+    color: #fff;
+    border-radius: 20px;
+    padding: 2px 6px;
+    font-size: 10px;
+    margin-left: auto;
+}
+
+.outline {
+    margin-top: auto;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.tagline {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+
+/* =========================
+   MAIN CONTENT
+   ========================= */
+
+main {
+    margin-left: 245px;
+    padding: 28px 34px 50px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 26px;
+}
+
+.topbar h1 {
+    font-size: 26px;
+}
+
+.eyebrow {
+    color: var(--orange2);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    font-size: 11px;
+}
+
+.top-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+
+/* =========================
+   CART BUTTON
+   ========================= */
+
+.cart-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 11px;
+    padding: 10px 13px;
+}
+
+.cart-btn span {
+    background: var(--orange);
+    color: white;
+    border-radius: 20px;
+    padding: 2px 6px;
+    font-size: 11px;
+}
+
+
+/* =========================
+   USER AVATAR
+   ========================= */
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #ffedd5;
+    color: var(--orange2);
+    font-weight: 800;
+}
+
+
+/* =========================
+   PAGES
+   ========================= */
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero {
+    background: linear-gradient(
+        120deg,
+        #ea580c,
+        #f97316
+    );
+    color: white;
+    border-radius: 22px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 210px;
+    margin-bottom: 18px;
+}
+
+.hero small {
+    color: #fed7aa;
+    font-weight: 800;
+}
+
+.hero h2 {
+    font-size: 32px;
+    line-height: 1.15;
+    margin: 8px 0;
+}
+
+.hero p {
+    max-width: 520px;
+    color: #ffedd5;
+}
+
+.hero-art {
+    font-size: 105px;
+    filter: drop-shadow(
+        0 10px 15px rgba(0, 0, 0, 0.18)
+    );
+}
+
+
+/* =========================
+   SEARCH BOX
+   ========================= */
+
+.searchbox {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 12px 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.searchbox input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--text);
+    width: 100%;
+}
+
+
+/* =========================
+   SECTION HEADERS
+   ========================= */
+
+.section-head,
+.intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 15px;
+    margin: 22px 0 15px;
+}
+
+.section-head h2,
+.intro h2 {
+    font-size: 21px;
+}
+
+.section-head small,
+.intro p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.link {
+    border: 0;
+    background: none;
+    color: var(--orange2);
+    font-weight: 700;
+}
+
+
+/* =========================
+   CATEGORIES
+   ========================= */
+
+.categories {
+    display: flex;
+    gap: 12px;
+    overflow: auto;
+    padding-bottom: 6px;
+}
+
+.category {
+    min-width: 105px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 15px;
+    padding: 14px;
+    text-align: center;
+    color: var(--text);
+}
+
+.category:hover,
+.category.active {
+    border-color: var(--orange);
+    background: #fff7ed;
+    color: var(--orange2);
+}
+
+.category .emoji {
+    font-size: 27px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.category small {
+    font-weight: 700;
+}
+
+
+/* =========================
+   FOOD GRID
+   ========================= */
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.food-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 22px rgba(
+        15,
+        23,
+        42,
+        0.04
+    );
+}
+
+.food-image {
+    height: 150px;
+    display: grid;
+    place-items: center;
+    font-size: 70px;
+    background: linear-gradient(
+        135deg,
+        #fff7ed,
+        #ffedd5
+    );
+}
+
+
+/* =========================
+   FAVORITE BUTTON
+   ========================= */
+
+.favorite {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: white;
+    font-size: 17px;
+}
+
+
+/* =========================
+   FOOD INFORMATION
+   ========================= */
+
+.food-info {
+    padding: 14px;
+}
+
+.food-info h3 {
+    font-size: 15px;
+}
+
+.food-info p {
+    color: var(--muted);
+    font-size: 11px;
+    height: 32px;
+    margin: 5px 0;
+    overflow: hidden;
+}
+
+.rating {
+    font-size: 11px;
+    color: #ca8a04;
+}
+
+.food-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.price {
+    font-weight: 800;
+}
+
+
+/* =========================
+   ADD BUTTON
+   ========================= */
+
+.add {
+    border: 0;
+    background: var(--orange);
+    color: #fff;
+    border-radius: 8px;
+    padding: 7px 10px;
+    font-weight: 700;
+}
+
+.add:hover {
+    background: var(--orange2);
+}
+
+
+/* =========================
+   TOOLBAR
+   ========================= */
+
+.toolbar {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.toolbar input,
+.toolbar select,
+label input,
+label select {
+    width: 100%;
+    padding: 10px 11px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface);
+    color: var(--text);
+    outline: none;
+}
+
+
+/* =========================
+   CART
+   ========================= */
+
+.cart-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr;
+    gap: 20px;
+}
+
+.panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.cart-row {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.cart-row:last-child {
+    border: 0;
+}
+
+.cart-food {
+    font-size: 34px;
+    width: 55px;
+    height: 55px;
+    background: #fff7ed;
+    border-radius: 11px;
+    display: grid;
+    place-items: center;
+}
+
+.cart-info {
+    flex: 1;
+}
+
+.cart-info b {
+    display: block;
+}
+
+.cart-info small {
+    color: var(--muted);
+}
+
+
+/* =========================
+   QUANTITY CONTROLS
+   ========================= */
+
+.qty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.qty button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 7px;
+}
+
+.remove {
+    border: 0;
+    background: none;
+    color: var(--muted);
+}
+
+
+/* =========================
+   ORDER SUMMARY
+   ========================= */
+
+.summary-card {
+    height: max-content;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    color: var(--muted);
+}
+
+.summary-line.total {
+    border-top: 1px solid var(--border);
+    color: var(--text);
+    font-weight: 800;
+    font-size: 18px;
+    margin-top: 7px;
+}
+
+
+/* =========================
+   PRIMARY BUTTON
+   ========================= */
+
+.primary {
+    border: 0;
+    background: var(--orange);
+    color: white;
+    border-radius: 10px;
+    padding: 11px 16px;
+    font-weight: 700;
+}
+
+.primary:hover {
+    background: var(--orange2);
+}
+
+.full {
+    width: 100%;
+    margin-top: 14px;
+}
+
+
+/* =========================
+   ORDERS
+   ========================= */
+
+.order {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 14px;
+}
+
+.order-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.status {
+    color: var(--green);
+    background: #dcfce7;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.order-items {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+.order-total {
+    font-weight: 800;
+}
+
+
+/* =========================
+   MODALS
+   ========================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(
+        15,
+        23,
+        42,
+        0.62
+    );
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-card {
+    background: var(--surface);
+    width: min(500px, 100%);
+    padding: 25px;
+    border-radius: 18px;
+    position: relative;
+}
+
+.modal-card h2 {
+    margin-bottom: 5px;
+}
+
+.modal-card > p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.modal-card form {
+    display: grid;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.modal-card label {
+    display: grid;
+    gap: 7px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    border: 0;
+    background: none;
+    color: var(--muted);
+    font-size: 27px;
+}
+
+
+/* =========================
+   CHECKOUT
+   ========================= */
+
+.checkout-total {
+    background: var(--bg);
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 800;
+    text-align: right;
+}
+
+
+/* =========================
+   SUCCESS MESSAGE
+   ========================= */
+
+.success {
+    text-align: center;
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: var(--green);
+    display: grid;
+    place-items: center;
+    font-size: 35px;
+    margin: 0 auto 14px;
+}
+
+
+/* =========================
+   EMPTY STATE
+   ========================= */
+
+.empty {
+    padding: 30px;
+    text-align: center;
+    color: var(--muted);
+    background: var(--bg);
+    border-radius: 12px;
+}
+
+
+/* =========================
+   MOBILE BOTTOM NAVIGATION
+   ========================= */
+
+.bottom {
+    display: none;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+
+@media (max-width: 1100px) {
+
+    .food-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+}
+
+
+@media (max-width: 850px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    main {
+        margin: 0;
+        padding: 20px 16px 90px;
+    }
+
+    .food-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .toolbar {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .hero-art {
+        font-size: 75px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .food-grid {
+        grid-template-columns:
+            1fr 1fr;
+        gap: 10px;
+    }
+
+    .food-image {
+        height: 115px;
+        font-size: 55px;
+    }
+
+    .hero {
+        padding: 22px;
+        min-height: 190px;
+    }
+
+    .hero h2 {
+        font-size: 25px;
+    }
+
+    .hero-art {
+        font-size: 58px;
+    }
+
+    .toolbar {
+        grid-template-columns: 1fr;
+    }
+
+    .section-head,
+    .intro {
+        align-items: flex-start;
+    }
+
+
+    /* Mobile Bottom Navigation */
+
+    .bottom {
+        position: fixed;
+        display: grid;
+        grid-template-columns:
+            repeat(5, 1fr);
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 6px;
+        z-index: 50;
+        box-shadow:
+            0 10px 35px
+            rgba(0, 0, 0, 0.16);
+    }
+
+    .bottom .nav {
+        flex-direction: column;
+        justify-content: center;
+        gap: 2px;
+        padding: 7px 3px;
+        text-align: center;
+        font-size: 17px;
+    }
+
+    .bottom .nav span {
+        font-size: 9px;
+    }
+}
